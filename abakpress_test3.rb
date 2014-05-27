@@ -1,0 +1,1 @@
+require 'lib/abakpress_test3.rb'
