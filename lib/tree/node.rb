@@ -13,10 +13,10 @@ class Node
   end
   
   def search(target_value)
-    return OneNodeTraverser.new(self) if (self.value == target_value)
+    return NodeEnumerator.new(OneNodeTraverser.new(self)) if (self.value == target_value)
     return self.right.search(target_value) if (target_value > self.value && self.right)
     return self.left.search(target_value) if (target_value < self.value && self.left)
-    return EmptyNodeTraverser.new()
+    return NodeEnumerator.new(EmptyNodeTraverser.new())
   end
 
   def search_less(target_value)

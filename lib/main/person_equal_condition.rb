@@ -1,7 +1,6 @@
 #
 # Реализация условия == для персоны, вычисляющая результат с помощью индекса (дерева поиска)
 #
-
 class PersonEqualCondition < EqualCondition
   include PersonConditionOperators
   

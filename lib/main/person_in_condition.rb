@@ -6,8 +6,9 @@ class PersonInCondition < InCondition
   
   def compute(person_manager)
     s = PersonSet.new
-    for v in self.values
-      s = s.or(PersonSet.new(person_manager.get_index(self.field_name).search(value)))
+    for v in self.value
+      s = s.or(field_name.eq(v).compute(person_manager))
     end
+    s
   end
 end

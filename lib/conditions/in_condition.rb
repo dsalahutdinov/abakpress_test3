@@ -2,7 +2,7 @@
 # Абстрактное предстваление условия попадание значения поля в множество вариантов
 #
 
-class InCondition < FieldConditdion
+class InCondition < FieldCondition
   attr_reader :value
 
   def initialize(field_name, value)

@@ -21,5 +21,11 @@ describe PersonManager do
         db.people.select{|p| p.salary > 100 and p.age > 100 }.collect(&:key).sort
         
     db.query(:salary.lt(10000) & :salary.gt(10001)).collect(&:key).count.should == 0
+    
+    db.query(:salary.eq(10000)).collect(&:key).should == 
+        db.people.select{|p| p.salary  == 10000 }.collect(&:key).sort
+        
+    db.query(:age.in(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)).collect(&:key).sort.should == 
+        db.people.select{|p| (1..10).to_a.include?(p.age) }.collect(&:key).sort
   end
 end
